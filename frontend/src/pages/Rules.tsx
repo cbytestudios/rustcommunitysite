@@ -144,16 +144,16 @@ export const RulesPage: React.FC = () => {
           <motion.h1
             className="text-5xl md:text-8xl font-black mb-6 tracking-wider text-white relative"
             animate={{
-              textShadow: [
-                '0 0 10px #e04d1a, 0 0 20px #e04d1a, 0 0 30px #e04d1a',
-                '0 0 20px #e04d1a, 0 0 40px #e04d1a, 0 0 60px #e04d1a, 0 0 80px rgba(224, 77, 26, 0.8)',
-                '0 0 30px #e04d1a, 0 0 60px #e04d1a, 0 0 90px rgba(224, 77, 26, 0.6)',
-                '0 0 10px #e04d1a, 0 0 20px #e04d1a, 0 0 30px #e04d1a',
-              ],
+                textShadow: [
+                  '0 0 10px #e04d1a, 0 0 20px #e04d1a, 0 0 30px #e04d1a',
+                  '0 0 20px #e04d1a, 0 0 40px #e04d1a, 0 0 60px #e04d1a, 0 0 80px rgba(224, 77, 26, 0.8)',
+                  '0 0 30px #e04d1a, 0 0 60px #e04d1a, 0 0 90px rgba(224, 77, 26, 0.6)',
+                  '0 0 10px #e04d1a, 0 0 20px #e04d1a, 0 0 30px #e04d1a',
+                ],
             }}
             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
           >
-            RUSTBORNE RULES
+              RUSTCOMMUNITY RULES
           </motion.h1>
           <motion.p
             className="text-gray-300 text-base md:text-lg max-w-3xl mx-auto font-light tracking-wide"
@@ -165,12 +165,13 @@ export const RulesPage: React.FC = () => {
 
         <motion.div
           className="relative mb-12"
+              className="inline-block bg-[#e04d1a] hover:bg-[#ff6a33] text-white font-black py-3 px-8 rounded-lg transition-all duration-300 relative overflow-hidden shadow-lg shadow-[#e04d1a]/60"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="relative">
+              APPEAL ON DISCORD
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#e04d1a] w-5 h-5" />
             <input
               type="text"
@@ -307,7 +308,7 @@ export const RulesPage: React.FC = () => {
               Violations will result in <span className="text-[#e04d1a] font-bold">warnings, mutes, temporary bans, or permanent bans</span> depending on severity. Appeals can be made on our Discord server.
             </p>
             <motion.a
-              href="https://discord.gg/rustborne"
+              href="https://discord.gg/rustcommunity"
               target="_blank"
               rel="noreferrer"
               className="inline-block bg-[#e04d1a] hover:bg-[#ff6a33] text-white font-black py-3 px-8 rounded-lg transition-all duration-300 relative overflow-hidden shadow-lg shadow-[#e04d1a]/60"

@@ -58,7 +58,7 @@ export const Header: React.FC = () => {
           >
             <img
               src="/logo.png"
-              alt="Rustborne"
+              alt="Rustcommunity"
               className="h-10 w-10 object-contain"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = 'none';
@@ -74,7 +74,7 @@ export const Header: React.FC = () => {
             whileHover={{ textShadow: '0 0 20px #e04d1a, 0 0 40px #e04d1a' }}
             transition={{ duration: 0.3 }}
           >
-            RUSTBORNE
+            RUSTCOMMUNITY
           </motion.span>
         </Link>
 
@@ -108,7 +108,7 @@ export const Header: React.FC = () => {
             </motion.div>
           ))}
           <motion.a
-            href="https://discord.gg/rustborne"
+            href="https://discord.gg/rustcommunity"
             target="_blank"
             rel="noreferrer"
             className="btn-primary flex items-center gap-2 relative overflow-hidden group"
@@ -163,7 +163,7 @@ export const Header: React.FC = () => {
             </motion.div>
           ))}
           <motion.a
-            href="https://discord.gg/rustborne"
+            href="https://discord.gg/rustcommunity"
             target="_blank"
             rel="noreferrer"
             className="btn-primary w-full text-center flex items-center justify-center gap-2"

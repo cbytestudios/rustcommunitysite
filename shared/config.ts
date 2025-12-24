@@ -21,8 +21,8 @@ export interface ServerConfig {
 export const SERVERS: ServerConfig[] = [
   {
     id: "12345",
-    name: "Rustborne NA 5x",
-    ip: "play.rustborne.com",
+    name: "Rustcommunity NA 5x",
+    ip: "play.rustcommunity.com",
     port: 28015,
     region: "NA",
     mode: "PVP",
@@ -34,8 +34,8 @@ export const SERVERS: ServerConfig[] = [
   },
   {
     id: "12346",
-    name: "Rustborne EU 2x",
-    ip: "eu.rustborne.com",
+    name: "Rustcommunity EU 2x",
+    ip: "eu.rustcommunity.com",
     port: 28015,
     region: "EU",
     mode: "PVE",
@@ -47,8 +47,8 @@ export const SERVERS: ServerConfig[] = [
   },
   {
     id: "12347",
-    name: "Rustborne Hardcore",
-    ip: "hardcore.rustborne.com",
+    name: "Rustcommunity Hardcore",
+    ip: "hardcore.rustcommunity.com",
     port: 28015,
     region: "NA",
     mode: "PVP",
@@ -60,8 +60,8 @@ export const SERVERS: ServerConfig[] = [
   },
   {
     id: "12348",
-    name: "Rustborne Asia",
-    ip: "asia.rustborne.com",
+    name: "Rustcommunity Asia",
+    ip: "asia.rustcommunity.com",
     port: 28015,
     region: "AS",
     mode: "PVP",
@@ -73,8 +73,8 @@ export const SERVERS: ServerConfig[] = [
   },
   {
     id: "12349",
-    name: "Rustborne Training",
-    ip: "training.rustborne.com",
+    name: "Rustcommunity Training",
+    ip: "training.rustcommunity.com",
     port: 28015,
     region: "NA",
     mode: "PVE",
@@ -86,8 +86,8 @@ export const SERVERS: ServerConfig[] = [
   },
   {
     id: "12350",
-    name: "Rustborne Events",
-    ip: "events.rustborne.com",
+    name: "Rustcommunity Events",
+    ip: "events.rustcommunity.com",
     port: 28015,
     region: "NA",
     mode: "PVP",
@@ -107,10 +107,10 @@ export const RANKS = [
 ];
 
 export const SITE_CONFIG = {
-  title: "Rustborne",
+  title: "Rustcommunity",
   tagline: "PVE/PVP Havens | Kits/Zombies | Weekly Wipes",
-  discordUrl: "https://discord.gg/rustborne",
-  tebexShop: "https://rustborne.tebex.io",
+  discordUrl: "https://discord.gg/rustcommunity",
+  tebexShop: "https://rustcommunity.tebex.io",
   colors: {
     primary: "#e04d1a", // rust-orange
     dark: "#0f0f0f", // charcoal

@@ -5,7 +5,7 @@ import { ShoppingCart, Crown, Zap, Target } from 'lucide-react';
 
 export const ShopPage: React.FC = () => {
   const handlePurchase = (tier: string, price: number) => {
-    window.location.href = `https://rustborne.tebex.io?product=${tier.toLowerCase()}`;
+    window.location.href = `https://rustcommunity.tebex.io?product=${tier.toLowerCase()}`;
   };
 
   const containerVariants = {
@@ -278,7 +278,7 @@ export const ShopPage: React.FC = () => {
             </motion.h2>
             <p className="text-gray-300 mb-6">Join our Discord community for support and exclusive announcements.</p>
             <motion.a
-              href="https://discord.gg/rustborne"
+              href="https://discord.gg/rustcommunity"
               target="_blank"
               rel="noreferrer"
               className="inline-block bg-[#e04d1a] hover:bg-[#ff6a33] text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg shadow-[#e04d1a]/60"

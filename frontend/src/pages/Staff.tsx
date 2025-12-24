@@ -51,7 +51,7 @@ export const StaffPage: React.FC = () => {
             OUR STAFF
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Meet the team keeping Rustborne safe and fair
+            Meet the team keeping Rustcommunity safe and fair
           </p>
         </motion.div>
 

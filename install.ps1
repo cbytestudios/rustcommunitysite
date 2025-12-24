@@ -1,6 +1,6 @@
-# RUSTBORNE - VPS Installation Script (PowerShell)
+# RUSTCOMMUNITY - VPS Installation Script (PowerShell)
 
-Write-Host "🚀 RUSTBORNE - VPS Installation Script" -ForegroundColor Green
+Write-Host "🚀 RUSTCOMMUNITY - VPS Installation Script" -ForegroundColor Green
 Write-Host "======================================" -ForegroundColor Green
 Write-Host ""
 

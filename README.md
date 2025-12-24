@@ -64,8 +64,8 @@ sudo apt-get install -y nodejs
 ### Clone & Deploy
 
 ```bash
-git clone https://github.com/yourusername/rustborne.git
-cd rustborne
+git clone https://github.com/cbytestudios/rustcommunitysite.git
+cd rustcommunity
 ./install.sh
 cp .env.example .env
 nano .env  # Configure
@@ -78,7 +78,7 @@ npm start
 sudo apt-get install -y nginx
 ```
 
-Create `/etc/nginx/sites-available/rustborne`:
+Create `/etc/nginx/sites-available/rustcommunity`:
 
 ```nginx
 server {
@@ -99,7 +99,7 @@ server {
 Enable and restart:
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/rustborne /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/rustcommunity /etc/nginx/sites-enabled/
 sudo systemctl restart nginx
 ```
 
@@ -114,11 +114,11 @@ sudo certbot --nginx -d yourdomain.com
 
 ```bash
 npm install -g pm2
-cd rustborne
-pm2 start npm --name "rustborne" -- start
+cd rustcommunity
+pm2 start npm --name "rustcommunity" -- start
 pm2 startup
 pm2 save
-pm2 logs rustborne
+pm2 logs rustcommunity
 ```
 
 ## Troubleshooting

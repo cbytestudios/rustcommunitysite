@@ -2,7 +2,7 @@
 
 set -e
 
-echo "🚀 RUSTBORNE - VPS Installation Script"
+echo "🚀 RUSTCOMMUNITY - VPS Installation Script"
 echo "======================================"
 echo ""
 

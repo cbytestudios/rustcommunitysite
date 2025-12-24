@@ -135,7 +135,7 @@ export const Hero: React.FC<HeroProps> = ({ onScroll }) => {
                 }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
               >
-                RUSTBORNE
+                RUSTCOMMUNITY
                 <motion.span
                   className="absolute inset-0 text-[#e04d1a] opacity-0"
                   animate={{
@@ -144,7 +144,7 @@ export const Hero: React.FC<HeroProps> = ({ onScroll }) => {
                   }}
                   transition={{ duration: 0.2, repeat: Infinity, repeatDelay: 3 }}
                 >
-                  RUSTBORNE
+                  RUSTCOMMUNITY
                 </motion.span>
               </motion.span>
             </motion.h1>
@@ -179,7 +179,7 @@ export const Hero: React.FC<HeroProps> = ({ onScroll }) => {
               />
             </motion.button>
             <motion.a
-              href="https://discord.gg/rustborne"
+              href="https://discord.gg/rustcommunity"
               target="_blank"
               rel="noreferrer"
               className="btn-secondary group relative overflow-hidden shadow-lg shadow-[#e04d1a]/40 hover:shadow-[#e04d1a]/80"

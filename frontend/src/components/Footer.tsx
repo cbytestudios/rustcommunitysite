@@ -29,8 +29,8 @@ export const Footer: React.FC = () => {
     { label: 'Servers', href: '#servers' },
     { label: 'Shop', href: '/shop' },
     { label: 'Rules', href: '/rules' },
-    { label: 'Discord', href: 'https://discord.gg/rustborne' },
-    { label: 'Email', href: 'mailto:support@rustborne.com' },
+    { label: 'Discord', href: 'https://discord.gg/rustcommunity' },
+    { label: 'Email', href: 'mailto:support@rustcommunity.com' },
     { label: 'Staff', href: '/staff' },
   ];
 
@@ -78,8 +78,8 @@ export const Footer: React.FC = () => {
             <h4 className="font-black text-white mb-6 text-sm uppercase tracking-widest">Support</h4>
             <ul className="space-y-3">
               {[
-                { label: 'Discord', href: 'https://discord.gg/rustborne' },
-                { label: 'Email', href: 'mailto:support@rustborne.com' },
+                { label: 'Discord', href: 'https://discord.gg/rustcommunity' },
+                { label: 'Email', href: 'mailto:support@rustcommunity.com' },
                 { label: 'Staff', href: '/staff' },
               ].map((link, i) => (
                 <motion.li
@@ -106,7 +106,7 @@ export const Footer: React.FC = () => {
             <h4 className="font-black text-white mb-6 text-sm uppercase tracking-widest">Connect</h4>
             <div className="flex gap-4 mb-6">
               <motion.a
-                href="https://discord.gg/rustborne"
+                href="https://discord.gg/rustcommunity"
                 target="_blank"
                 rel="noreferrer"
                 className="p-3 rounded-lg bg-[#1a1a1a] border border-[#e04d1a]/30 text-[#e04d1a] hover:bg-[#e04d1a] hover:text-white transition-all duration-300 group"
@@ -116,7 +116,7 @@ export const Footer: React.FC = () => {
                 <MessageCircle className="w-5 h-5" />
               </motion.a>
               <motion.a
-                href="https://github.com/rustborne"
+                href="https://github.com/rustcommunity"
                 target="_blank"
                 rel="noreferrer"
                 className="p-3 rounded-lg bg-[#1a1a1a] border border-[#e04d1a]/30 text-[#e04d1a] hover:bg-[#e04d1a] hover:text-white transition-all duration-300"

@@ -4,7 +4,7 @@ import { RANKS } from '../config';
 import { ShoppingCart, Crown, Zap, Target } from 'lucide-react';
 export const ShopPage = () => {
     const handlePurchase = (tier, price) => {
-        window.location.href = `https://rustborne.tebex.io?product=${tier.toLowerCase()}`;
+        window.location.href = `https://rustcommunity.tebex.io?product=${tier.toLowerCase()}`;
     };
     const containerVariants = {
         hidden: { opacity: 0 },
