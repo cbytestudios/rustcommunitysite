@@ -8,33 +8,14 @@ import 'swiper/css/pagination';
 export const StaffPage = () => {
     const staff = [
         {
-            name: 'Grumpy Old Man',
+            name: 'Staff 1',
             role: 'Owner & Admin',
-            bio: 'Veteran Rust server admin. Coffee addict. Keeps the peace.',
-            discord: '@grumpyoldman',
+            bio: 'I am the best staff member.',
+            discord: '@beststaff1',
             avatar: '👑',
         },
-        {
-            name: 'Chaos',
-            role: 'Senior Admin',
-            bio: 'PVP expert. Handles raids and disputes fairly.',
-            discord: '@chaos',
-            avatar: '⚔️',
-        },
-        {
-            name: 'Zen',
-            role: 'Moderator',
-            bio: 'Community builder. PVE specialist. Always helpful.',
-            discord: '@zen',
-            avatar: '🧘',
-        },
-        {
-            name: 'Nova',
-            role: 'Moderator',
-            bio: 'Technical wizard. Fixes bugs and issues.',
-            discord: '@nova',
-            avatar: '⚡',
-        },
+        
+        
     ];
     return (_jsx("div", { className: "min-h-screen bg-[#0f0f0f] pt-24 pb-16", children: _jsxs("div", { className: "max-w-6xl mx-auto px-4", children: [_jsxs(motion.div, { className: "text-center mb-16", initial: { opacity: 0, y: -20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.6 }, children: [_jsx("h1", { className: "text-5xl md:text-7xl font-black mb-4 gradient-text tracking-wider", children: "OUR STAFF" }), _jsx("p", { className: "text-gray-400 text-lg max-w-2xl mx-auto", children: "Meet the team keeping Rustcommunity safe and fair" })] }), _jsx(Swiper, { modules: [Navigation, Pagination], spaceBetween: 30, slidesPerView: 1, breakpoints: {
                         768: { slidesPerView: 2 },
