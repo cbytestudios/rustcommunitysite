@@ -48,14 +48,24 @@ nano .env  # Configure with your settings
 Edit `.env` with these required values:
 
 ```env
+# Frontend API URL - must be your actual domain (with https in production)
+VITE_API_URL=https://yourdomain.com
+
+# Discord Bot Configuration
 DISCORD_TOKEN=your_bot_token_here
 STATUS_CHANNEL_ID=your_status_channel_id
 ANNOUNCEMENT_CHANNEL_ID=your_announcement_channel_id
+
+# Hosting
 PORT=3000
 NODE_ENV=production
 ```
 
-Get your Discord bot token from [Discord Developer Portal](https://discord.com/developers/applications).
+**Important Configuration Notes:**
+- **`VITE_API_URL`**: Must be your domain (e.g., `https://yourdomain.com`), not localhost. This is how the frontend calls your API.
+- **`PORT`**: Always use `3000` - Nginx handles ports 80/443 and proxies to your app on 3000
+- **`DISCORD_TOKEN`**: Get from [Discord Developer Portal](https://discord.com/developers/applications)
+- **`STATUS_CHANNEL_ID` & `ANNOUNCEMENT_CHANNEL_ID`**: Discord channel IDs where the bot posts updates
 
 ### Step 4: Start the Application
 

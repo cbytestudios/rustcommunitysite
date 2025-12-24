@@ -121,6 +121,12 @@ if [ ! -d "frontend/dist" ]; then
 fi
 echo "✅ Frontend built successfully"
 
+# Fix permissions for Nginx
+echo ""
+echo "🔐 Setting up file permissions for Nginx..."
+sudo chown -R www-data:www-data frontend/dist
+sudo chmod -R 755 frontend/dist
+
 echo ""
 echo "Building bot..."
 cd bot && npm run build && cd ..
@@ -186,7 +192,12 @@ server {
     ssl_ciphers HIGH:!aNULL:!MD5;
     ssl_prefer_server_ciphers on;
 
-    location / {
+    # Serve frontend static files
+    root $(pwd)/frontend/dist;
+    index index.html;
+
+    # API requests - proxy to bot on port 3000
+    location /api {
         proxy_pass http://localhost:3000;
         proxy_http_version 1.1;
         proxy_set_header Upgrade \$http_upgrade;
@@ -196,6 +207,11 @@ server {
         proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto \$scheme;
         proxy_cache_bypass \$http_upgrade;
+    }
+
+    # SPA fallback - serve index.html for client-side routing
+    location / {
+        try_files \$uri \$uri/ /index.html;
     }
 }
 EOF
