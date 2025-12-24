@@ -1,4 +1,4 @@
-# 🌋 RUSTBORNE
+# 🌋 Rust Server Website Theme
 
 Rust server management platform with Discord bot and web interface.
 
