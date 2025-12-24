@@ -4,35 +4,32 @@ Rust server management platform with Discord bot and web interface.
 
 ## Installation
 
-### Quick Start (Linux/Mac)
+### Prerequisites
+
+- VPS with Ubuntu 20.04+ (or similar Linux)
+- SSH access
+- 2GB RAM minimum (4GB recommended)
+- Domain name (optional, for Nginx setup)
+
+### Step 1: Install Node.js
 
 ```bash
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+### Step 2: Clone & Deploy
+
+```bash
+git clone https://github.com/cbytestudios/rustcommunitysite.git
+cd rustcommunitysite
 chmod +x install.sh
 ./install.sh
 cp .env.example .env
-nano .env  # Edit with your Discord credentials
-npm start
+nano .env  # Configure with your settings
 ```
 
-### Quick Start (Windows PowerShell)
-
-```powershell
-.\install.ps1
-cp .env.example .env
-# Edit .env with your Discord credentials
-npm start
-```
-
-### Docker
-
-```bash
-cp .env.example .env
-nano .env  # Configure
-docker-compose up -d
-docker-compose logs -f
-```
-
-## Configuration
+### Step 3: Configuration
 
 Edit `.env` with these required values:
 
@@ -46,33 +43,23 @@ NODE_ENV=production
 
 Get your Discord bot token from [Discord Developer Portal](https://discord.com/developers/applications).
 
-## VPS Deployment
-
-### Prerequisites
-
-- VPS with Ubuntu 20.04+ (or similar Linux)
-- SSH access
-- 2GB RAM minimum (4GB recommended)
-
-### Install Node.js
+### Step 4: Start the Application
 
 ```bash
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-sudo apt-get install -y nodejs
-```
-
-### Clone & Deploy
-
-```bash
-git clone https://github.com/cbytestudios/rustcommunitysite.git
-cd rustcommunity
-./install.sh
-cp .env.example .env
-nano .env  # Configure
 npm start
 ```
 
-### With Nginx Reverse Proxy
+Or use PM2 for process management (recommended):
+
+```bash
+npm install -g pm2
+pm2 start npm --name "rustcommunity" -- start
+pm2 startup
+pm2 save
+pm2 logs rustcommunity
+```
+
+## Nginx Configuration
 
 ```bash
 sudo apt-get install -y nginx
@@ -103,22 +90,54 @@ sudo ln -s /etc/nginx/sites-available/rustcommunity /etc/nginx/sites-enabled/
 sudo systemctl restart nginx
 ```
 
-### SSL Certificate (Let's Encrypt)
+## SSL Certificate (Let's Encrypt)
 
 ```bash
 sudo apt-get install -y certbot python3-certbot-nginx
 sudo certbot --nginx -d yourdomain.com
 ```
 
-### Process Management with PM2
+## Process Management
+
+The application can be managed in several ways:
+
+### PM2 (Recommended)
 
 ```bash
 npm install -g pm2
-cd rustcommunity
 pm2 start npm --name "rustcommunity" -- start
 pm2 startup
 pm2 save
 pm2 logs rustcommunity
+```
+
+### Systemd Service
+
+Create `/etc/systemd/system/rustcommunity.service`:
+
+```ini
+[Unit]
+Description=Rust Community Site
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/path/to/rustcommunitysite
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/npm start
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Then enable and start:
+
+```bash
+sudo systemctl enable rustcommunity
+sudo systemctl start rustcommunity
+sudo systemctl status rustcommunity
 ```
 
 ## Troubleshooting
@@ -153,9 +172,9 @@ NODE_OPTIONS=--max-old-space-size=2048 npm start
 
 ```bash
 npm start          # Production
-npm run dev        # Development (both frontend & bot)
 npm run build      # Build for production
 npm install        # Install dependencies
+pm2 logs           # View PM2 logs
 ```
 
 ## Features
@@ -172,7 +191,7 @@ npm install        # Install dependencies
 - Frontend: React, Vite, TailwindCSS
 - Bot: Discord.js, Node.js
 - API: BattleMetrics integration
-- Deploy: Docker, PM2, Nginx
+- Deploy: PM2, Nginx
 
 Notes and next steps:
 - The API endpoint `/api/status` queries the Rust server using `gamedig`. If `RUST_SERVER_HOST` and `RUST_SERVER_PORT` are not set it returns a friendly message.
@@ -198,3 +217,4 @@ Restart=always
 [Install]
 WantedBy=multi-user.target
 ```
+
