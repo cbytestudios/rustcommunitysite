@@ -93,18 +93,36 @@ if ! command -v npm &> /dev/null; then
 fi
 
 echo ""
-echo "📦 Installing dependencies..."
+echo "📦 Installing root dependencies..."
 npm install
 
 echo ""
+echo "📦 Installing frontend dependencies..."
+cd frontend
+npm install
+cd ..
+
+echo ""
+echo "📦 Installing bot dependencies..."
+cd bot
+npm install
+cd ..
+
+echo ""
 echo "🔧 Building projects..."
+echo ""
+echo "Building frontend..."
 cd frontend && npm run build && cd ..
 if [ ! -d "frontend/dist" ]; then
     echo "❌ Frontend build failed - dist folder not found"
+    echo "   Please ensure tsc (TypeScript compiler) was installed:"
+    echo "   cd frontend && npm install"
     exit 1
 fi
 echo "✅ Frontend built successfully"
 
+echo ""
+echo "Building bot..."
 cd bot && npm run build && cd ..
 if [ ! -f "bot/dist/index.js" ]; then
     echo "❌ Bot build failed - dist/index.js not found"
