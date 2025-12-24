@@ -1,4 +1,4 @@
-import { SlashCommandBuilder, CommandInteraction, EmbedBuilder } from 'discord.js';
+import { SlashCommandBuilder, ChatInputCommandInteraction, EmbedBuilder } from 'discord.js';
 import { SERVERS, COLORS } from '../config';
 import { calculateWipeCountdown } from '../services/battlemetrics';
 
@@ -15,7 +15,7 @@ export const wipeCommand = new SlashCommandBuilder()
       )
   );
 
-export const handleWipeCommand = async (interaction: CommandInteraction) => {
+export const handleWipeCommand = async (interaction: ChatInputCommandInteraction) => {
   const serverId = interaction.options.getString('server', true);
   const server = SERVERS.find((s) => s.id === serverId);
 

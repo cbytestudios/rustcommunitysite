@@ -1,4 +1,4 @@
-import { SlashCommandBuilder, CommandInteraction, EmbedBuilder } from 'discord.js';
+import { SlashCommandBuilder, ChatInputCommandInteraction, EmbedBuilder } from 'discord.js';
 import { SERVERS, COLORS } from '../config';
 import { createConnectEmbed } from '../utils/embeds';
 
@@ -15,7 +15,7 @@ export const connectCommand = new SlashCommandBuilder()
       )
   );
 
-export const handleConnectCommand = async (interaction: CommandInteraction) => {
+export const handleConnectCommand = async (interaction: ChatInputCommandInteraction) => {
   const serverId = interaction.options.getString('server', true);
   const server = SERVERS.find((s) => s.id === serverId);
 
