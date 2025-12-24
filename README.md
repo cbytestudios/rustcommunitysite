@@ -14,7 +14,7 @@ Rust server management platform with Discord bot and web interface.
 ### Step 1: Install Node.js
 
 ```bash
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
@@ -144,7 +144,7 @@ sudo systemctl status rustcommunity
 
 **Application won't start:**
 ```bash
-node -v  # Should be v18+
+node -v  # Should be v20+
 npm install
 npm start
 ```

@@ -8,7 +8,7 @@ echo ""
 
 # Check if Node.js is installed
 if ! command -v node &> /dev/null; then
-    echo "❌ Node.js is not installed. Please install Node.js 18+ first."
+    echo "❌ Node.js is not installed. Please install Node.js 20+ first."
     echo "   https://nodejs.org/"
     exit 1
 fi

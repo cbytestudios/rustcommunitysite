@@ -6,7 +6,7 @@ Write-Host ""
 
 # Check if Node.js is installed
 if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
-    Write-Host "❌ Node.js is not installed. Please install Node.js 18+ first." -ForegroundColor Red
+    Write-Host "❌ Node.js is not installed. Please install Node.js 20+ first." -ForegroundColor Red
     Write-Host "   https://nodejs.org/" -ForegroundColor Yellow
     exit 1
 }
