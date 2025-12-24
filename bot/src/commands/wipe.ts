@@ -1,6 +1,6 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction, EmbedBuilder } from 'discord.js';
-import { SERVERS, COLORS } from '../config';
-import { calculateWipeCountdown } from '../services/battlemetrics';
+import { SERVERS, COLORS } from '../config.js';
+import { calculateWipeCountdown } from '../services/battlemetrics.js';
 
 export const wipeCommand = new SlashCommandBuilder()
   .setName('wipe')

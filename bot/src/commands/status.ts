@@ -1,7 +1,7 @@
 import { SlashCommandBuilder, CommandInteraction, EmbedBuilder } from 'discord.js';
-import { SERVERS, COLORS } from '../config';
-import { fetchPlayerCount } from '../services/battlemetrics';
-import { createStatusCheckEmbed } from '../utils/embeds';
+import { SERVERS, COLORS } from '../config.js';
+import { fetchPlayerCount } from '../services/battlemetrics.js';
+import { createStatusCheckEmbed } from '../utils/embeds.js';
 
 export const statusCommand = new SlashCommandBuilder()
   .setName('status')

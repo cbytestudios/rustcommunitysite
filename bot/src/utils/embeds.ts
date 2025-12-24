@@ -1,7 +1,7 @@
 import { EmbedBuilder } from 'discord.js';
-import { COLORS } from '../config';
-import type { ServerConfig } from '../config';
-import { calculateWipeCountdown, getPlayerPercentage } from '../services/battlemetrics';
+import { COLORS } from '../config.js';
+import type { ServerConfig } from '../config.js';
+import { calculateWipeCountdown, getPlayerPercentage } from '../services/battlemetrics.js';
 
 export const createServerListEmbed = (
   servers: (ServerConfig & { current: number; max: number })[]

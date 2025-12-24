@@ -1,12 +1,12 @@
 import { Client, GatewayIntentBits, ChannelType, TextChannel } from 'discord.js';
 import cron from 'node-cron';
-import { SERVERS, BOT_CONFIG, COLORS } from './config';
-import { calculateWipeCountdown, fetchPlayerCount } from './services/battlemetrics';
-import { createWipeAlertEmbed, createStatusCheckEmbed } from './utils/embeds';
-import { serversCommand, handleServersCommand } from './commands/servers';
-import { connectCommand, handleConnectCommand } from './commands/connect';
-import { wipeCommand, handleWipeCommand } from './commands/wipe';
-import { statusCommand, handleStatusCommand } from './commands/status';
+import { SERVERS, BOT_CONFIG, COLORS } from './config.js';
+import { calculateWipeCountdown, fetchPlayerCount } from './services/battlemetrics.js';
+import { createWipeAlertEmbed, createStatusCheckEmbed } from './utils/embeds.js';
+import { serversCommand, handleServersCommand } from './commands/servers.js';
+import { connectCommand, handleConnectCommand } from './commands/connect.js';
+import { wipeCommand, handleWipeCommand } from './commands/wipe.js';
+import { statusCommand, handleStatusCommand } from './commands/status.js';
 
 const client = new Client({
   intents: [

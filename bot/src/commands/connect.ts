@@ -1,6 +1,6 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction, EmbedBuilder } from 'discord.js';
-import { SERVERS, COLORS } from '../config';
-import { createConnectEmbed } from '../utils/embeds';
+import { SERVERS, COLORS } from '../config.js';
+import { createConnectEmbed } from '../utils/embeds.js';
 
 export const connectCommand = new SlashCommandBuilder()
   .setName('connect')

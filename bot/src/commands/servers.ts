@@ -1,7 +1,7 @@
 import { SlashCommandBuilder, CommandInteraction, EmbedBuilder } from 'discord.js';
-import { SERVERS, COLORS } from '../config';
-import { fetchPlayerCount } from '../services/battlemetrics';
-import { createServerListEmbed, createConnectEmbed } from '../utils/embeds';
+import { SERVERS, COLORS } from '../config.js';
+import { fetchPlayerCount } from '../services/battlemetrics.js';
+import { createServerListEmbed, createConnectEmbed } from '../utils/embeds.js';
 
 export const serversCommand = new SlashCommandBuilder()
   .setName('servers')
