@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  rustborne:
+    build: .
+    container_name: rustborne
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      DISCORD_TOKEN: ${DISCORD_TOKEN}
+      STATUS_CHANNEL_ID: ${STATUS_CHANNEL_ID}
+      ANNOUNCEMENT_CHANNEL_ID: ${ANNOUNCEMENT_CHANNEL_ID}
+      BM_WEBHOOK_SECRET: ${BM_WEBHOOK_SECRET:-}
+      PORT: 3000
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"

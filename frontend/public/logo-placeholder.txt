@@ -1,0 +1,18 @@
+LOGO PLACEHOLDER
+
+Your Rustborne logo goes here!
+
+Location: y:\Rustborne\frontend\public\logo.png
+
+Recommended specifications:
+- Format: PNG with transparency
+- Size: 512x512 pixels or larger
+- Aspect ratio: Square (1:1)
+- Color: Works best with the rust-orange (#e04d1a) theme
+
+How to add your logo:
+1. Save your logo as "logo.png" in the public folder
+2. The header will automatically display it next to "RUSTBORNE"
+3. If no logo is found, the text-only header displays
+
+If you want a custom size or positioning, edit the Header.tsx component's img tag.

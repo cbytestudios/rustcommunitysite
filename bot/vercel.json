@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "bot/dist/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "bot/dist/index.js"
+    }
+  ],
+  "env": {
+    "DISCORD_TOKEN": "@discord_token",
+    "BM_WEBHOOK_SECRET": "@bm_webhook_secret",
+    "STATUS_CHANNEL_ID": "@status_channel_id",
+    "ANNOUNCEMENT_CHANNEL_ID": "@announcement_channel_id"
+  }
+}
