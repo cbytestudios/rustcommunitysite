@@ -9,7 +9,7 @@ Rust server management platform with Discord bot and web interface.
 - VPS with Ubuntu 20.04+ (or similar Linux)
 - SSH access
 - 2GB RAM minimum (4GB recommended)
-- Domain name (optional, for Nginx setup)
+- Domain name (for SSL and port 80/443 setup)
 
 ### Step 1: Install Node.js
 
@@ -25,11 +25,25 @@ git clone https://github.com/cbytestudios/rustcommunitysite.git
 cd rustcommunitysite
 chmod +x install.sh
 ./install.sh
+```
+
+The installation script will:
+- ✅ Install all dependencies
+- ✅ Build the frontend and bot
+- ✅ Install Nginx and certbot
+- ✅ Prompt for your domain name
+- ✅ Automatically request and configure SSL certificates (Let's Encrypt)
+- ✅ Configure Nginx as a reverse proxy for ports 80 & 443
+- ✅ Redirect HTTP to HTTPS automatically
+
+### Step 3: Configuration
+
+After installation completes:
+
+```bash
 cp .env.example .env
 nano .env  # Configure with your settings
 ```
-
-### Step 3: Configuration
 
 Edit `.env` with these required values:
 
@@ -49,7 +63,13 @@ Get your Discord bot token from [Discord Developer Portal](https://discord.com/d
 npm start
 ```
 
-Or use PM2 for process management (recommended):
+Your site will be accessible at:
+- **HTTPS (Secure):** https://yourdomain.com (port 443)
+- **HTTP:** http://yourdomain.com (port 80 - redirects to HTTPS)
+
+### Step 5: Process Management
+
+Use PM2 for process management (recommended):
 
 ```bash
 npm install -g pm2
@@ -59,42 +79,28 @@ pm2 save
 pm2 logs rustcommunity
 ```
 
-## Nginx Configuration
+## Nginx & SSL (Automated)
+
+The installation script automatically:
+- Installs Nginx web server
+- Installs Certbot for Let's Encrypt SSL certificates
+- Configures Nginx as a reverse proxy
+- Sets up automatic HTTPS with port 443
+- Redirects port 80 HTTP traffic to HTTPS
+
+**SSL certificates are free and auto-renewing** through Let's Encrypt.
+
+If you need to manually renew or troubleshoot SSL:
 
 ```bash
-sudo apt-get install -y nginx
-```
+# Renew SSL certificate
+sudo certbot renew
 
-Create `/etc/nginx/sites-available/rustcommunity`:
+# Check certificate status
+sudo certbot certificates
 
-```nginx
-server {
-    listen 80;
-    server_name yourdomain.com;
-
-    location / {
-        proxy_pass http://localhost:3000;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
-    }
-}
-```
-
-Enable and restart:
-
-```bash
-sudo ln -s /etc/nginx/sites-available/rustcommunity /etc/nginx/sites-enabled/
+# Restart Nginx to apply changes
 sudo systemctl restart nginx
-```
-
-## SSL Certificate (Let's Encrypt)
-
-```bash
-sudo apt-get install -y certbot python3-certbot-nginx
-sudo certbot --nginx -d yourdomain.com
 ```
 
 ## Process Management
