@@ -165,13 +165,15 @@ export const RulesPage: React.FC = () => {
 
         <motion.div
           className="relative mb-12"
-              className="inline-block bg-[#e04d1a] hover:bg-[#ff6a33] text-white font-black py-3 px-8 rounded-lg transition-all duration-300 relative overflow-hidden shadow-lg shadow-[#e04d1a]/60"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-              APPEAL ON DISCORD
+          <button className="inline-block bg-[#e04d1a] hover:bg-[#ff6a33] text-white font-black py-3 px-8 rounded-lg transition-all duration-300 relative overflow-hidden shadow-lg shadow-[#e04d1a]/60">
+            APPEAL ON DISCORD
+          </button>
+          <div className="relative mb-12">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#e04d1a] w-5 h-5" />
             <input
               type="text"
