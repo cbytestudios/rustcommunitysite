@@ -29,7 +29,20 @@ npm install
 echo ""
 echo "🔧 Building projects..."
 cd frontend && npm run build && cd ..
+if [ ! -d "frontend/dist" ]; then
+    echo "❌ Frontend build failed - dist folder not found"
+    exit 1
+fi
+echo "✅ Frontend built successfully"
+
 cd bot && npm run build && cd ..
+if [ ! -f "bot/dist/index.js" ]; then
+    echo "❌ Bot build failed - dist/index.js not found"
+    echo "   Please check that TypeScript compiled correctly:"
+    echo "   cd bot && npm run build"
+    exit 1
+fi
+echo "✅ Bot built successfully"
 
 echo ""
 echo "📦 Installing Nginx..."

@@ -148,17 +148,33 @@ sudo systemctl status rustcommunity
 
 ## Troubleshooting
 
-**Application won't start:**
+**Application won't start / Bot not found:**
+
+If you see: `Error: Cannot find module '/path/to/bot/dist/index.js'`
+
+The bot TypeScript files weren't compiled. Rebuild manually:
+
 ```bash
-node -v  # Should be v20+
-npm install
+cd bot
+npm install  # Make sure all dependencies are installed
+npm run build  # Compile TypeScript to JavaScript
+cd ..
 npm start
 ```
 
+**General startup issues:**
+```bash
+node -v  # Should be v20+
+npm install  # Reinstall dependencies
+npm run build  # Rebuild TypeScript
+npm start  # Start the application
+```
+
 **Discord bot not responding:**
-- Check `DISCORD_TOKEN` is correct
-- Verify channel IDs match your server
-- Confirm bot is in your Discord server
+- Check `DISCORD_TOKEN` is correct in `.env`
+- Verify `STATUS_CHANNEL_ID` and `ANNOUNCEMENT_CHANNEL_ID` exist
+- Confirm bot is in your Discord server with proper permissions
+- Check PM2 logs: `pm2 logs rustcommunity`
 
 **Port already in use:**
 ```bash
