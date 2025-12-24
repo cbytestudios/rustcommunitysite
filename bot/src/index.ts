@@ -1,5 +1,6 @@
 import { Client, GatewayIntentBits, ChannelType, TextChannel } from 'discord.js';
 import cron from 'node-cron';
+import 'dotenv/config.js';
 import { SERVERS, BOT_CONFIG, COLORS } from './config.js';
 import { calculateWipeCountdown, fetchPlayerCount } from './services/battlemetrics.js';
 import { createWipeAlertEmbed, createStatusCheckEmbed } from './utils/embeds.js';
