@@ -6,6 +6,76 @@ echo "🚀 RUSTCOMMUNITY - VPS Installation Script"
 echo "======================================"
 echo ""
 
+# Function to check if installation exists
+check_installation() {
+    if [ -d "node_modules" ] || [ -d "bot/dist" ] || [ -d "frontend/dist" ]; then
+        return 0  # Installation exists
+    fi
+    return 1  # Installation doesn't exist
+}
+
+# Function to uninstall
+uninstall() {
+    echo "🗑️  Uninstalling RustCommunity..."
+    echo ""
+    
+    # Stop PM2 process if running
+    if pm2 list | grep -q rustcommunity; then
+        echo "⏹️  Stopping PM2 process..."
+        pm2 delete rustcommunity 2>/dev/null || true
+        pm2 save 2>/dev/null || true
+    fi
+    
+    # Remove node_modules and build files
+    echo "🧹 Removing node_modules and build files..."
+    rm -rf node_modules frontend/node_modules bot/node_modules 2>/dev/null || true
+    rm -rf frontend/dist bot/dist 2>/dev/null || true
+    rm -rf package-lock.json frontend/package-lock.json bot/package-lock.json 2>/dev/null || true
+    
+    # Remove Nginx config
+    if [ -f "/etc/nginx/sites-enabled/rustcommunity" ]; then
+        echo "🌐 Removing Nginx configuration..."
+        sudo rm -f /etc/nginx/sites-enabled/rustcommunity
+        sudo rm -f /etc/nginx/sites-available/rustcommunity
+        sudo systemctl restart nginx 2>/dev/null || true
+    fi
+    
+    echo "✅ Uninstall complete!"
+    echo ""
+}
+
+# Check if already installed
+if check_installation; then
+    echo "⚠️  RustCommunity is already installed on this system."
+    echo ""
+    echo "What would you like to do?"
+    echo "1) Continue with fresh install (uninstall first)"
+    echo "2) Uninstall only"
+    echo "3) Exit"
+    echo ""
+    read -p "Choose an option (1-3): " choice
+    
+    case $choice in
+        1)
+            uninstall
+            echo "Proceeding with fresh installation..."
+            echo ""
+            ;;
+        2)
+            uninstall
+            exit 0
+            ;;
+        3)
+            echo "Exiting installation script."
+            exit 0
+            ;;
+        *)
+            echo "❌ Invalid choice. Exiting."
+            exit 1
+            ;;
+    esac
+fi
+
 # Check if Node.js is installed
 if ! command -v node &> /dev/null; then
     echo "❌ Node.js is not installed. Please install Node.js 20+ first."
